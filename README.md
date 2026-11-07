@@ -22,18 +22,21 @@ The source opens later; the binaries here are what every machine of a pool runs.
 
 ## Requirements
 
-- Linux on x86_64 with an NVIDIA card (driver 525.60 or newer) for each machine that trains.
-- Any Linux machine, even without a GPU, to hold the pool.
+- An NVIDIA card (driver 525.60 or newer) on each machine that trains: Linux or Windows, x86_64 or Arm.
+- Any machine to hold the pool, a Mac or a machine without a GPU included: it coordinates, runs the app, chats with the pool's models and submits jobs, and lends no GPU.
 - No Python, Docker or Node: the binary builds its own runtime the first time it needs one.
-- Windows and macOS: not yet. Apple GPUs do not train here yet.
 
 ## Install
 
 ```bash
-curl -fsSL https://github.com/ToniBirat7/dscp/releases/latest/download/install.sh | sh
+curl -fsSL https://github.com/ToniBirat7/dscp/releases/latest/download/install.sh | sh   # Linux or macOS
 ```
 
-The installer checks the release's Ed25519 signature before it installs anything.
+```powershell
+irm https://github.com/ToniBirat7/dscp/releases/latest/download/install.ps1 | iex       # Windows, as yourself
+```
+
+Each installer checks the release's Ed25519 signature before it installs anything, installs as you with no administrator, and puts `dscp` on your PATH.
 The desktop app for Debian and Ubuntu is the `.deb` on the [releases page](https://github.com/ToniBirat7/dscp/releases).
 
 ## Start a pool
